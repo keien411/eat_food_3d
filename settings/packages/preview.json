@@ -1,0 +1,16 @@
+{
+  "previewConfig": {
+    "userDevices": {
+      "design": {
+        "height": 750,
+        "name": "design",
+        "width": 1334
+      },
+      "device_name": {
+        "height": 640,
+        "name": "device_name",
+        "width": 960
+      }
+    }
+  }
+}
