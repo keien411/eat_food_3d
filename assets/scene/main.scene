@@ -299,9 +299,9 @@
     "_lrot": {
       "__type__": "cc.Quat",
       "x": 0,
-      "y": 0,
+      "y": 1.2246467991473532e-16,
       "z": 0,
-      "w": 1
+      "w": -1
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -313,7 +313,7 @@
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 360,
       "z": 0
     },
     "_id": "54c2rnetFLer0BjQLJyXBM"
@@ -6703,6 +6703,7 @@
     },
     "_enabled": true,
     "playerController": null,
+    "state": 0,
     "_id": "57eDam40hGXIfH0yg8+2fq"
   },
   {
@@ -6840,6 +6841,7 @@
     "playerController": {
       "__id__": 104
     },
+    "state": 2,
     "_id": "94j9Te4P5PfL9c+c6kXEpS"
   },
   {

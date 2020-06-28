@@ -5,7 +5,7 @@ const { ccclass, property } = _decorator;
 @ccclass('player')
 export class player extends mangeGame {
 
-    private speed :number = 1;
+    private speed :number = 6;
     private time :number = 0;
     private _curPos: Vec3 = cc.v3();
 
@@ -44,49 +44,103 @@ export class player extends mangeGame {
         this._curPos.x = this._curPos.y = this._curPos.z = 0;
     }
 
-    /*
+    /**
     * 向前
     * */
     public up(delta) {
         this.node.setRotationFromEuler(0,180,0);
 
-        let targetZ = this._curPos.z - delta.z * 1e-2;
-        if (targetZ > 50) targetZ = 50;
-        if (targetZ < - 50) targetZ = -50;
-        this._curPos.z = targetZ;
+        this.setCurZ(delta);
     }
 
-    /*
+    /**
    * 向后
    * */
     public down(delta) {
         this.node.setRotationFromEuler(0,0,0);
 
-        let targetZ = this._curPos.z - delta.z * 1e-2;
-        if (targetZ > 50) targetZ = 50;
-        if (targetZ < - 50) targetZ = -50;
-        this._curPos.z = targetZ;
+        this.setCurZ(delta);
     }
 
-    /*
+    /**
     * 向左
     * */
     public left(delta) {
         this.node.setRotationFromEuler(0,90,0);
 
-        let targetX = this._curPos.x - delta.x * 1e-2;
-        if (targetX > 50) targetX = 50;
-        if (targetX < - 50) targetX = -50;
-        this._curPos.x = targetX;
+        this.setCurX(delta);
     }
 
-    /*
+    /**
    * 向右
    * */
     public right(delta) {
-        this.node.setRotationFromEuler(0,-90,0);
+        this.node.setRotationFromEuler(0,270,0);
 
-        let targetX = this._curPos.x - delta.x * 1e-2;
+        this.setCurX(delta);
+    }
+
+
+    /**
+   * 向前右
+   * */
+    public up_right(delta) {
+        this.node.setRotationFromEuler(0,135,0);
+        this.setCurX(delta);
+        this.setCurZ(delta);
+    }
+
+    /**
+     * 向前左
+     * */
+    public up_left(delta) {
+        this.node.setRotationFromEuler(0,225,0);
+        this.setCurX(delta);
+        this.setCurZ(delta);
+    }
+
+    /**
+     * 向下左
+     * */
+    public down_left(delta) {
+        this.node.setRotationFromEuler(0,315,0);
+        this.setCurX(delta);
+        this.setCurZ(delta);
+    }
+
+    /**
+     * 向下右
+     * */
+    public down_right(delta) {
+        this.node.setRotationFromEuler(0,45,0);
+        this.setCurX(delta);
+        this.setCurZ(delta);
+    }
+
+    /**
+     * 设置方向
+     * */
+    public allDir(angle, delta) {
+        this.node.setRotationFromEuler(0,angle,0);
+        this.setCurX(delta);
+        this.setCurZ(delta);
+    }
+
+    /**
+   * 设置上下
+   * */
+    private setCurZ (delta) {
+        let targetZ = this._curPos.z - delta.z * this.speed * 1e-2;
+        if (targetZ > 50) targetZ = 50;
+        if (targetZ < - 50) targetZ = -50;
+        this._curPos.z = targetZ;
+    }
+
+    /**
+     * 设置左右
+     * */
+    private setCurX (delta) {
+        let targetX = this._curPos.x - delta.x * this.speed * 1e-2;
         if (targetX > 50) targetX = 50;
         if (targetX < - 50) targetX = -50;
         this._curPos.x = targetX;
