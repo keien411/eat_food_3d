@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, RigidBodyComponent, Vec3 ,tweenUtil, BoxColliderComponent, ICollisionEvent} from 'cc';
+import { _decorator, Component, Node, RigidBodyComponent, Vec3 ,tweenUtil, BoxColliderComponent, ICollisionEvent, Quat} from 'cc';
 import {mangeGame} from "./mange/mangeGame";
 const { ccclass, property } = _decorator;
 
@@ -47,21 +47,33 @@ export class player extends mangeGame {
     /*
     * 向前
     * */
-    public up() {
+    public up(delta) {
+        this.node.setRotationFromEuler(0,180,0);
 
+        let targetZ = this._curPos.z - delta.z * 1e-2;
+        if (targetZ > 50) targetZ = 50;
+        if (targetZ < - 50) targetZ = -50;
+        this._curPos.z = targetZ;
     }
 
     /*
    * 向后
    * */
-    public down() {
+    public down(delta) {
+        this.node.setRotationFromEuler(0,0,0);
 
+        let targetZ = this._curPos.z - delta.z * 1e-2;
+        if (targetZ > 50) targetZ = 50;
+        if (targetZ < - 50) targetZ = -50;
+        this._curPos.z = targetZ;
     }
 
     /*
     * 向左
     * */
     public left(delta) {
+        this.node.setRotationFromEuler(0,90,0);
+
         let targetX = this._curPos.x - delta.x * 1e-2;
         if (targetX > 50) targetX = 50;
         if (targetX < - 50) targetX = -50;
@@ -72,6 +84,8 @@ export class player extends mangeGame {
    * 向右
    * */
     public right(delta) {
+        this.node.setRotationFromEuler(0,-90,0);
+
         let targetX = this._curPos.x - delta.x * 1e-2;
         if (targetX > 50) targetX = 50;
         if (targetX < - 50) targetX = -50;

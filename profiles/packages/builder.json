@@ -78,6 +78,7 @@
               }
             }
           },
+          "customJointTextureLayouts": [],
           "includeModules": [
             "base",
             "gfx-webgl",
@@ -103,15 +104,14 @@
               "a": 1
             },
             "displayWatermark": true
-          },
-          "customJointTextureLayouts": []
+          }
         },
-        "message": "build success in 43697 ms!",
+        "message": "build success in 4470 ms!",
         "logMap": {
           "log": 19,
           "warn": 2,
           "error": 0,
-          "debug": 30
+          "debug": 46
         }
       }
     ]

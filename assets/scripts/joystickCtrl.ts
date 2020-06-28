@@ -23,6 +23,8 @@ export class joystickCtrl extends mangeGame {
 
     private direction: number = Dir.STILL;
 
+    private speed: number = 6;
+
     start () {
         this.node.on(Node.EventType.TOUCH_START, this.callbackTOUCH_START, this);
         this.node.on(Node.EventType.TOUCH_MOVE, this.callbackTOUCH_MOVE, this);
@@ -75,7 +77,7 @@ export class joystickCtrl extends mangeGame {
                 if (hitPosition) {
                     this.node.getChildByName("joystickBar").setPosition(hitPosition.x, hitPosition.y, 0);
                     this.node.getChildByName("joystickBg").getPosition(localPositionBg);
-                    this.dirChoose(touch.getUILocation(), new Vec2(localPositionBg.x, localPositionBg.y));
+                    this.dirChoose(new Vec2(localPosition.x, localPosition.y), new Vec2(localPositionBg.x, localPositionBg.y));
                 }
             }
 
@@ -118,9 +120,6 @@ export class joystickCtrl extends mangeGame {
                 this.direction = Dir.DOWN;
             }
         }
-
-        cc.log(" x ",x);
-        cc.log(" y ",y)
 
     }
 
@@ -242,10 +241,16 @@ export class joystickCtrl extends mangeGame {
         // Your update function goes here.
         switch (this.direction) {
             case Dir.RIGHT:
-                this.playerController.left({x:-20});
+                this.playerController.left({x:-this.speed}, );
                 break;
             case Dir.LEFT:
-                this.playerController.left({x:20});
+                this.playerController.right({x:this.speed});
+                break;
+            case Dir.UP:
+                this.playerController.up({z:this.speed});
+                break;
+            case Dir.DOWN:
+                this.playerController.down({z:-this.speed});
                 break;
         }
     }
