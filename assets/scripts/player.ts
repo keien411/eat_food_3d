@@ -1,20 +1,30 @@
-import { _decorator, Component, Node, RigidBodyComponent, Vec3 ,tweenUtil, BoxColliderComponent, ICollisionEvent, Quat} from 'cc';
+import {
+    _decorator,
+    Component,
+    Node,
+    RigidBodyComponent,
+    Vec3,
+    tweenUtil,
+    BoxColliderComponent,
+    ICollisionEvent,
+    Quat
+} from 'cc';
 import {mangeGame} from "./mange/mangeGame";
-const { ccclass, property } = _decorator;
+
+const {ccclass, property} = _decorator;
 
 @ccclass('player')
 export class player extends mangeGame {
 
-    private speed :number = 6;
-    private time :number = 0;
+    private speed: number = 5;
     private _curPos: Vec3 = cc.v3();
 
-    update (deltaTime: number) {
+    update(deltaTime: number) {
         // Your update function goes here.
         this.node.position = this._curPos;
     }
 
-    start () {
+    start() {
         cc.log("start player");
         let collider = this.getComponent(BoxColliderComponent);
         if (collider) {
@@ -27,7 +37,7 @@ export class player extends mangeGame {
         this.resetPos();
     }
 
-    onCollision (event: ICollisionEvent) {
+    onCollision(event: ICollisionEvent) {
         cc.log('onCollision');
         const collider = this.getComponent(BoxColliderComponent);
         if (collider != event.selfCollider) {
@@ -45,47 +55,47 @@ export class player extends mangeGame {
     }
 
     /**
-    * 向前
-    * */
+     * 向前
+     * */
     public up(delta) {
-        this.node.setRotationFromEuler(0,180,0);
+        this.node.setRotationFromEuler(0, 180, 0);
 
         this.setCurZ(delta);
     }
 
     /**
-   * 向后
-   * */
+     * 向后
+     * */
     public down(delta) {
-        this.node.setRotationFromEuler(0,0,0);
+        this.node.setRotationFromEuler(0, 0, 0);
 
         this.setCurZ(delta);
     }
 
     /**
-    * 向左
-    * */
+     * 向左
+     * */
     public left(delta) {
-        this.node.setRotationFromEuler(0,90,0);
+        this.node.setRotationFromEuler(0, 90, 0);
 
         this.setCurX(delta);
     }
 
     /**
-   * 向右
-   * */
+     * 向右
+     * */
     public right(delta) {
-        this.node.setRotationFromEuler(0,270,0);
+        this.node.setRotationFromEuler(0, 270, 0);
 
         this.setCurX(delta);
     }
 
 
     /**
-   * 向前右
-   * */
+     * 向前右
+     * */
     public up_right(delta) {
-        this.node.setRotationFromEuler(0,135,0);
+        this.node.setRotationFromEuler(0, 135, 0);
         this.setCurX(delta);
         this.setCurZ(delta);
     }
@@ -94,7 +104,7 @@ export class player extends mangeGame {
      * 向前左
      * */
     public up_left(delta) {
-        this.node.setRotationFromEuler(0,225,0);
+        this.node.setRotationFromEuler(0, 225, 0);
         this.setCurX(delta);
         this.setCurZ(delta);
     }
@@ -103,7 +113,7 @@ export class player extends mangeGame {
      * 向下左
      * */
     public down_left(delta) {
-        this.node.setRotationFromEuler(0,315,0);
+        this.node.setRotationFromEuler(0, 315, 0);
         this.setCurX(delta);
         this.setCurZ(delta);
     }
@@ -112,7 +122,7 @@ export class player extends mangeGame {
      * 向下右
      * */
     public down_right(delta) {
-        this.node.setRotationFromEuler(0,45,0);
+        this.node.setRotationFromEuler(0, 45, 0);
         this.setCurX(delta);
         this.setCurZ(delta);
     }
@@ -121,35 +131,34 @@ export class player extends mangeGame {
      * 设置方向
      * */
     public allDir(angle, delta) {
-        this.node.setRotationFromEuler(0,angle,0);
+        this.node.setRotationFromEuler(0, angle, 0);
         this.setCurX(delta);
         this.setCurZ(delta);
     }
 
     /**
-   * 设置上下
-   * */
-    private setCurZ (delta) {
+     * 设置上下
+     * */
+    private setCurZ(delta) {
         let targetZ = this._curPos.z - delta.z * this.speed * 1e-2;
         if (targetZ > 50) targetZ = 50;
-        if (targetZ < - 50) targetZ = -50;
+        if (targetZ < -50) targetZ = -50;
         this._curPos.z = targetZ;
     }
 
     /**
      * 设置左右
      * */
-    private setCurX (delta) {
+    private setCurX(delta) {
         let targetX = this._curPos.x - delta.x * this.speed * 1e-2;
         if (targetX > 50) targetX = 50;
-        if (targetX < - 50) targetX = -50;
+        if (targetX < -50) targetX = -50;
         this._curPos.x = targetX;
     }
 
 
-
     // 根据自身方向，转化方向
-    public _getDirection (x: number, y: number, z: number) {
+    public _getDirection(x: number, y: number, z: number) {
         const result = new Vec3(x, y, z);
         Vec3.transformQuat(result, result, this.node.getRotation());
         return result;
