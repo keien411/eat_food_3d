@@ -367,10 +367,10 @@ export class joystickCtrl extends mangeGame {
         // Your update function goes here.
         switch (this.direction) {
             case Dir.RIGHT:
-                this.playerController.left({x: -1});
+                this.playerController.right({x: -1});
                 break;
             case Dir.LEFT:
-                this.playerController.right({x: 1});
+                this.playerController.left({x: 1});
                 break;
             case Dir.UP:
                 this.playerController.up({z: 1});

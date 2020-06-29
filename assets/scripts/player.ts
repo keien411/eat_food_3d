@@ -76,7 +76,7 @@ export class player extends mangeGame {
      * 向左
      * */
     public left(delta) {
-        this.node.setRotationFromEuler(0, 90, 0);
+        this.node.setRotationFromEuler(0, 270, 0);
 
         this.setCurX(delta);
     }
@@ -85,7 +85,7 @@ export class player extends mangeGame {
      * 向右
      * */
     public right(delta) {
-        this.node.setRotationFromEuler(0, 270, 0);
+        this.node.setRotationFromEuler(0, 90, 0);
 
         this.setCurX(delta);
     }

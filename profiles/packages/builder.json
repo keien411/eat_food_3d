@@ -106,10 +106,10 @@
             "displayWatermark": true
           }
         },
-        "message": "build success in 4470 ms!",
+        "message": "build success in 3560 ms!",
         "logMap": {
           "log": 19,
-          "warn": 2,
+          "warn": 1,
           "error": 0,
           "debug": 46
         }
