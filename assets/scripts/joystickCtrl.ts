@@ -125,6 +125,9 @@ export class joystickCtrl extends mangeGame {
     private callbackTOUCH_END() {
         this.initJoyStick();
         this.direction = Dir.STILL;
+        if (this.playerController) {
+            this.playerController.pauseAnimationRun();
+        }
     }
 
     /**
@@ -133,6 +136,9 @@ export class joystickCtrl extends mangeGame {
     private callbackTOUCH_CANCEL() {
         this.initJoyStick();
         this.direction = Dir.STILL;
+        if (this.playerController) {
+            this.playerController.pauseAnimationRun();
+        }
     }
 
     /**
@@ -146,6 +152,9 @@ export class joystickCtrl extends mangeGame {
         let y = touchPosition.y - localPosition.y;
         let newPoint = this.getTanPoint(localPosition, touchPosition);
 
+        if (this.playerController) {
+            this.playerController.startAnimationRun();
+        }
 
         switch (this.state) {
             case State.FOUR:

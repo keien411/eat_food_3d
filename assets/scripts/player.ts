@@ -7,7 +7,8 @@ import {
     tweenUtil,
     BoxColliderComponent,
     ICollisionEvent,
-    Quat
+    Quat,
+    SkeletalAnimationComponent
 } from 'cc';
 import {mangeGame} from "./mange/mangeGame";
 
@@ -52,6 +53,17 @@ export class player extends mangeGame {
 
     resetPos() {
         this._curPos.x = this._curPos.y = this._curPos.z = 0;
+    }
+
+    public startAnimationRun() {
+
+        if (!this.getComponent(SkeletalAnimationComponent).getState("Take 001").isPlaying || this.getComponent(SkeletalAnimationComponent).getState("Take 001").isPaused) {
+            this.getComponent(SkeletalAnimationComponent).play();
+        }
+    }
+
+    public pauseAnimationRun() {
+        this.getComponent(SkeletalAnimationComponent).pause();
     }
 
     /**

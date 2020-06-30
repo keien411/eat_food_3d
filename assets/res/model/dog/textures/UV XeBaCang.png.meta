@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.17",
+  "importer": "image",
+  "imported": true,
+  "uuid": "16ab0e99-2523-49b6-bec5-4b705e0f4347",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "16ab0e99-2523-49b6-bec5-4b705e0f4347@6c48a",
+      "displayName": "UV XeBaCang",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "16ab0e99-2523-49b6-bec5-4b705e0f4347"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "16ab0e99-2523-49b6-bec5-4b705e0f4347@6c48a"
+  }
+}
