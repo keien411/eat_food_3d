@@ -1,5 +1,5 @@
 {
-  "ver": "1.0.17",
+  "ver": "1.0.18",
   "importer": "image",
   "imported": true,
   "uuid": "30e67244-6b2d-434a-8eda-04bd09be0acc",
@@ -13,7 +13,7 @@
       "importer": "texture",
       "name": "texture",
       "id": "6c48a",
-      "displayName": "sea_rt.JPG",
+      "displayName": "sea_rt",
       "uuid": "30e67244-6b2d-434a-8eda-04bd09be0acc@6c48a",
       "imported": true,
       "files": [

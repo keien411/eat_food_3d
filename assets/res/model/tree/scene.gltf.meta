@@ -1,5 +1,5 @@
 {
-  "ver": "1.3.19",
+  "ver": "1.3.21",
   "importer": "gltf",
   "imported": true,
   "uuid": "c7ffe0e7-4981-4859-845d-2b285f74b02e",
@@ -22,7 +22,7 @@
       "name": "UnnamedImage.image"
     },
     "8e59d": {
-      "ver": "1.0.9",
+      "ver": "1.1.0",
       "importer": "gltf-mesh",
       "name": "birch_tree_SC_free_birch_red_mat_0.mesh",
       "id": "8e59d",
