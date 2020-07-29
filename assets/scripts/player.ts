@@ -8,11 +8,13 @@ import {
     BoxColliderComponent,
     ICollisionEvent,
     Quat,
-    SkeletalAnimationComponent
+    SkeletalAnimationComponent,
+    logID,
+    log
 } from 'cc';
-import {mangeGame} from "./mange/mangeGame";
+import { mangeGame } from "./mange/mangeGame";
 
-const {ccclass, property} = _decorator;
+const { ccclass, property } = _decorator;
 
 @ccclass('player')
 export class player extends mangeGame {
@@ -26,10 +28,10 @@ export class player extends mangeGame {
     }
 
     start() {
-        cc.log("start player");
+        log("start player");
         let collider = this.getComponent(BoxColliderComponent);
         if (collider) {
-            cc.log('collider');
+            log('collider');
             collider.on('onCollisionEnter', this.onCollision, this);
             collider.on('onCollisionStay', this.onCollision, this);
             collider.on('onCollisionExit', this.onCollision, this);
@@ -39,15 +41,16 @@ export class player extends mangeGame {
     }
 
     onCollision(event: ICollisionEvent) {
-        cc.log('onCollision');
         const collider = this.getComponent(BoxColliderComponent);
         if (collider != event.selfCollider) {
             return;
         }
         if (event.type == 'onCollisionStay') {
-            cc.log('onCollisionStay');
+            log('onCollisionStay');
         } else if (event.type == 'onCollisionExit') {
-            cc.log('onCollisionExit');
+            log('onCollisionExit');
+        } else if (event.type == 'onCollisionEnter') {
+            log('onCollisionEnter');
         }
     }
 

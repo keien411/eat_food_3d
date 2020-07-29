@@ -9,7 +9,8 @@ import {
     Vec2,
     Mat4,
     UITransformComponent,
-    Touch
+    Touch,
+    log
 } from 'cc';
 import {mangeGame} from "./mange/mangeGame";
 import {player} from './player';
@@ -57,7 +58,7 @@ export class joystickCtrl extends mangeGame {
     }
 
     onLoad() {
-        cc.log("joystickCtrl onLoad");
+        log("joystickCtrl onLoad");
         this.initJoyStick();
     }
 

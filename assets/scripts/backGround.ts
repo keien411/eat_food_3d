@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, tween, Vec3 } from 'cc';
+import { _decorator, Component, Node, tween, Vec3, log } from 'cc';
 import {mangeGame} from "./mange/mangeGame";
 const { ccclass, property } = _decorator;
 
@@ -6,7 +6,7 @@ const { ccclass, property } = _decorator;
 export class backGround extends mangeGame {
     start () {
         // Your initialization goes here.
-        cc.log("start backGround");
+        log("start backGround");
     }
 
     //给一个向前的方向

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, tween, Vec3 } from 'cc';
+import { _decorator, Component, Node, tween, Vec3, log } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('mangeGame')
@@ -9,7 +9,7 @@ export class mangeGame extends Component {
     }
     //初始化坐标
     public initPosition() {
-        cc.log("mangeGame initPosition");
+        log("mangeGame initPosition");
     }
 
     // update (deltaTime: number) {

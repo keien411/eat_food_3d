@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, RigidBodyComponent, Vec3 } from 'cc';
+import { _decorator, Component, Node, RigidBodyComponent, Vec3, log } from 'cc';
 import {mangeGame} from "./mange/mangeGame";
 const { ccclass, property,type } = _decorator;
 
@@ -10,7 +10,7 @@ export class camera extends mangeGame {
 
 
     start () {
-        cc.log("start camera");
+        log("start camera");
     }
 
     update (deltaTime: number) {
